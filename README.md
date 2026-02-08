@@ -20,7 +20,7 @@ A clean, modular, and fully functional JavaScript calculator with persistent his
 ## 🌟 Demo
 Interactive calculator with real-time calculation, keyboard support, and persistent calculation history.
 
-![Project Preview](CSS/PIC/11985283.png)
+![Project Preview](style/pic/Preview.png)
 
 ---
 
@@ -110,4 +110,4 @@ Export history as CSV or JSON
 
 ## 📄 License
 **MIT License**
-This project is licensed under the MIT License – see the LICENSE file for details
+This project is free to use and open source under the MIT License – feel free to fork, modify, and distribute it as you wish
