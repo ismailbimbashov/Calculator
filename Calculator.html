@@ -1,52 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <link rel="icon" type="image/x-icon" href="11985283.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!--MAIN CSS-->
-<link rel="stylesheet" href="CSS/CSS.css">
+    <link rel="icon" type="image/x-icon" href="style/pic/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="calculator" role="application" aria-label="Calculator">
+      <header class="calculator-header">
+        <h1 class="calculator-title">Calculator</h1>
+      </header>
 
-</head>
-<body>
-<div class="calculator">
-    <h2>Calculator</h2>
-    <!--INPUT FIELD-->
-    <input type="text" id="display" readonly placeholder="0">
-    
+      <div class="display-wrap">
+        <input
+          type="text"
+          id="display"
+          class="display"
+          readonly
+          placeholder="0"
+          aria-label="Calculation display"
+          autocomplete="off"
+        />
+      </div>
 
-    <div class="buttons">
-        <button onclick="appendToDisplay('7')">7</button>
-        <button onclick="appendToDisplay('8')">8</button>
-        <button onclick="appendToDisplay('9')">9</button>
-        <button onclick="appendToDisplay('4')">4</button>
-        <button onclick="appendToDisplay('5')">5</button>
-        <button onclick="appendToDisplay('6')">6</button>
-        <button onclick="appendToDisplay('1')">1</button>
-        <button onclick="appendToDisplay('2')">2</button>
-        <button onclick="appendToDisplay('3')">3</button>
-        <button onclick="appendToDisplay('0')">0</button>
-        <button onclick="appendToDisplay('+')">+</button>
-        <button onclick="appendToDisplay('*')">x</button>
-        <button onclick="appendToDisplay('-')">-</button>
-        <button onclick="appendToDisplay('.')">.</button>
-        <button onclick="clearDisplay()">C</button>
-        <button onclick="appendToDisplay('/')">/</button>
-        <button onclick="calculateResult()">=</button>
-        <button onclick="deleteLastCharacter()"><i class="fa-solid fa-delete-left"></i></button>
+      <div class="buttons" role="group" aria-label="Number and operation keys">
+        <button type="button" class="btn btn-num" data-action="append" data-value="7" aria-label="7">7</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="8" aria-label="8">8</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="9" aria-label="9">9</button>
+        <button type="button" class="btn btn-op" data-action="append" data-value="+" aria-label="Plus">+</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="4" aria-label="4">4</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="5" aria-label="5">5</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="6" aria-label="6">6</button>
+        <button type="button" class="btn btn-op" data-action="append" data-value="*" aria-label="Multiply">×</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="1" aria-label="1">1</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="2" aria-label="2">2</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="3" aria-label="3">3</button>
+        <button type="button" class="btn btn-op" data-action="append" data-value="-" aria-label="Minus">−</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="0" aria-label="0">0</button>
+        <button type="button" class="btn btn-num" data-action="append" data-value="." aria-label="Decimal point">.</button>
+        <button type="button" class="btn btn-clear" data-action="clear" aria-label="Clear display">C</button>
+        <button type="button" class="btn btn-op" data-action="append" data-value="/" aria-label="Divide">/</button>
+        <button type="button" class="btn btn-equals" data-action="equals" aria-label="Equals">=</button>
+        <button type="button" class="btn btn-backspace" data-action="backspace" aria-label="Backspace">
+          <i class="fa-solid fa-delete-left" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <section class="history-section" aria-labelledby="history-heading">
+        <div class="history-header">
+          <h2 id="history-heading" class="history-title">History</h2>
+          <button type="button" class="btn-clear-history" id="c" data-action="clear-history" aria-label="Clear all history">
+            Clear History
+          </button>
+        </div>
+        <ul id="history-list" class="history-list"></ul>
+        <p class="total-row">
+          Total: <strong id="total-spent" class="total-value">0.00</strong>
+        </p>
+      </section>
+
+      <p class="error-message" id="error-message" aria-live="polite"></p>
     </div>
-    <!--DISPLAY OF THE INPUT-->
-    <h3>Calculation History</h3>
-    <button onclick="clearHistory()" id ="c">Clear History</button>
-    <ul id="history-list"></ul>
-
-    <!--DISPLAY OF THE NUMBERS FROM INPUT-->
-    <p>Total Amount Spent: <span id="total-spent">0.00</span></p>
-    <p class="error-message" id="error-message"></p>
-</div>
-<!--MAIN JS-->
- <script src="JS/JS.js"></script>
-</body>
+    <script type="module" src="script/main.js"></script>
+  </body>
 </html>
