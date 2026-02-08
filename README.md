@@ -110,4 +110,4 @@ Export history as CSV or JSON
 
 ## 📄 License
 **MIT License**
-This project is licensed under the MIT License – see the LICENSE file for details
+This project is free to use and open source under the MIT License – feel free to fork, modify, and distribute it as you wish
