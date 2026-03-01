@@ -20,7 +20,7 @@ A clean, modular, and fully functional JavaScript calculator with persistent his
 ## 🌟 Demo
 Interactive calculator with real-time calculation, keyboard support, and persistent calculation history.
 
-![Project Preview](style/pic/Preview.png)
+![Project Preview](style/image/Preview.png)
 
 ---
 
